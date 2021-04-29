@@ -1,0 +1,16 @@
+N=64;
+m = 200*N; % détermination de la longueur du signal pour le zero padding
+Te=1/128;
+fe = 1/Te;
+k = 0:N-1;
+%h = (0:N-1)*1/N en Hz relatifs par rapport à fe
+x = sin(2*pi*20*k*Te);
+%X = fft(x);
+X1 = fft(x,m); %pour faire du zero padding
+%magX = abs(X);
+magX1 = abs(X1);
+h = (0:m-1)*fe/m; %graduer axe de frequence
+%figure(1);
+%plot(h,magX), title('module de la TF de x'), xlabel('k'),grid
+figure(2);
+plot(h,magX1), title('module de la TF de x1'), xlabel('h'),grid
